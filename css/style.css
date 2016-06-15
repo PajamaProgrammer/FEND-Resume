@@ -1,3 +1,30 @@
+/* fontawesome - used for logos */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: "FontAwesome", sans-serif;
+}
+
+/* Float */
+
+.hvr-float {
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+}
+.hvr-float:hover,
+.hvr-float:focus,
+.hvr-float:active {
+  transform: translateY(-8px);
+}
+
 body,
 div,
 ul,
@@ -11,7 +38,14 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
 }
 
 .clear-fix {
@@ -60,14 +94,16 @@ h5 {
   padding:10px 5%;
 
 }
-
+.employer-text {
+  font-size: 18px;
+}
 
 .date-text {
   font-style: italic;
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: left;
+  float: right;
 }
 
 .location-text {
@@ -75,21 +111,39 @@ h5 {
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: right;
+  float: left;
 
 }
 
 p {
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
   line-height: 21px;
 }
 
-a {
-  color: #1199c3;
-  text-decoration: none;
-  margin-top: 10px;
+.display-block {
   display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #1199c3;
+  /*margin-top: 10px;*/
+  display: block;
+}
+
+.indent {
+  margin-left: 10px;
+}
+
+.bullet-list {
+  margin: 20px 10px 10px 20px;
+}
+
+.bullet-entry {
+  font-size: 14px;
+  color: #333;
 }
 
 .welcome-message {
@@ -154,6 +208,7 @@ ul {
   padding: 10px;
   width: 200px;
   display: none;
+  border-radius: 25%;
 }
 
 img {
