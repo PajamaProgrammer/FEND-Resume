@@ -68,6 +68,7 @@ var work = {
         {
             "employer" : "Schlumberger",
             "description" : "Supervised crew in the operation and ongoing maintenance of data acquisition equipment in a dynamic, fast paced, high volume, high expectation work setting. Provided mostly open-hole formation evaluation services - Resistivity, Nuclear (density/porosity), Imaging, Sonic, Nuclear Magnetic Resonance, Formation Pressure Testing & Sampling, Seismic, Coring, etc - and analysis of downhole conditions to aid clients on critical decisions regarding production or abandonment of well.",
+            "url" : "http://www.slb.com/",
             "jobs"  :
             [
                 {
@@ -144,6 +145,7 @@ var work = {
         {
             "employer" : "Mississippi Power, a Southern Company",
             "description" : "Worked as an Engineer in Training at Plant Jack Watson under the direct supervision of a senior engineer",
+            "url" : "http://www.mississippipower.com/",
             "jobs"  :
             [
                 {
@@ -185,6 +187,7 @@ work.display = function() {
         $("#workExperience").append(HTMLworkStart);
 
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.employers[i].employer);
+        formattedEmployer = formattedEmployer.replace("#", work.employers[i].url)
         $(".work-entry:last").append(formattedEmployer);
 
         var formattedDes = HTMLworkDescription.replace("%data%", work.employers[i].description);
@@ -221,31 +224,87 @@ var education = {
         {
             "name" : "University of the People",
             "location" : "Pasadena, California",
-            "degree" : "BS",
+            "degree" : "B.S.",
             "major" : "Computer Science",
             "minor" : [],
-            "graduation" : "May 2006",
-            "url" : "http://www.msstate.edu/"
+            "dates" : "Sep 2015 - Sep 2018",
+            "url" : "http://www.msstate.edu/",
+            "gpa" : "4.00/4.00"
         },
         {
             "name" : "Mississippi State University",
             "location" : "Starkville, MS",
-            "degree" : "BS",
+            "degree" : "B.S.",
             "major" : "Electrical Engineering",
             "minor" : ["Computer Science", "Mathematics"],
-            "graduation" : "September 2018",
-            "url" : "http://www.uopeople.edu/"
+            "dates" : "Jun 2000 - May 2006",
+            "url" : "http://www.uopeople.edu/",
+            "gpa" : "3.85/4.00"
         }
     ] ,
     "onlineCourses" : [
         {
             "title" : "Front-End Web Developer Nanodegree",
             "school" : "Udacity",
-            "dates" : "2016",
+            "dates" : "Jun 2016 - Present",
             "url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
         }
     ]
 };
+
+education.display = function () {
+
+    $("#education").append(HTMLschoolStart);
+
+    for (i in education.schools)
+    {
+        var formattedName = HTMLschoolName.replace("%data%", education.schools[i].name);
+        formattedName = formattedName.replace("#", education.schools[i].url);
+        $(".education-entry:last").append(formattedName);
+
+        var formattedLoc = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+        $(".education-entry:last").append(formattedLoc);
+
+        var formattedDate = HTMLschoolDates.replace("%data%", education.schools[i].dates);
+        $(".education-entry:last").append(formattedDate);
+
+        var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+        $(".education-entry:last").append(formattedMajor);
+
+        var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+        $(".education-entry:last").append(formattedDegree);
+
+        for (j in education.schools[i].minor)
+        {
+            var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[i].minor[j]);
+            $(".education-entry:last").append(formattedMinor);
+        }
+
+        var formattedGPA = HTMLschoolGPA.replace("%data%", education.schools[i].gpa)
+        $(".education-entry:last").append(formattedGPA);
+    }
+
+    $(".education-entry:last").append(HTMLonlineClasses);
+
+    for (i in education.onlineCourses)
+    {
+        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
+        formattedTitle = formattedTitle.replace("#", education.onlineCourses[i].url)
+        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school)
+        $(".education-entry:last").append(formattedTitle + formattedSchool);
+
+        var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates)
+        $(".education-entry:last").append(formattedDate);
+    }
+}
+/*
+var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineDates = '<div class="date-text">%data%</div>';
+var HTMLonlineURL
+*/
+
+education.display();
 
 var projects = {
     "projects" : [

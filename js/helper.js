@@ -30,7 +30,7 @@ var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a class="add-margin-top employer-text" href="#">%data%</a>';
+var HTMLworkEmployer = '<a class="add-margin-top employer-text hvr-float" href="#">%data%</a>';
 var HTMLworkTitle = '<a class = "indent" href="#"> %data%</a>';
 var HTMLworkDates = '<div class="date-text indent">%data%</div>';
 var HTMLworkLocation = '<div class="location-text indent">%data%</div>';
@@ -39,20 +39,22 @@ var HTMLworkBulletStart = '<div><ul class="flex-box bullet-list"></ul></div>';
 var HTMLworkBullet = '<li class="display-block fontawesome-circle-arrow-right"><span class="bullet-entry"> %data%</span></li>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<a class="hvr-float" href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
+var HTMLschoolName = '<a class="add-margin-top hvr-float display-block" href="#">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMinor = '<em><br>Minor: %data%</em>';
+var HTMLschoolGPA = '<em><br>GPA: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLonlineClasses = '<h3 class="online-entry add-margin-top no-padding fontawesome-laptop"> Online Classes</h3>';
+var HTMLonlineTitle = '<a class="hvr-float add-margin-top" href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
