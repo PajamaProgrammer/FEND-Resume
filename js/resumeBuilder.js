@@ -1,3 +1,4 @@
+/* Biographical Information*/
 var bio = {
     "name" : "Rebecca Owen",
     "role" : "Web Developer",
@@ -39,7 +40,6 @@ bio.display = function () {
     {
         if (formattedContacts[i].length > 0)
         {
-
             $("#topContacts").append(formattedContacts[i]);
             $("#footerContacts").append(formattedContacts[i]);
         }
@@ -62,6 +62,9 @@ bio.display = function () {
 
 bio.display();
 
+/* Work Experience - I've held many positions and worked in many countries,
+this object was modified to represent my work history. Which also meant modifying the
+locationFinder funtion in helper.js in order properly display every location on the map...*/
 var work = {
     "employers" :
     [
@@ -182,10 +185,11 @@ var work = {
 }
 
 work.display = function() {
+
+    $("#workExperience").append(HTMLworkStart);
+
     for (var i in work.employers)
     {
-        $("#workExperience").append(HTMLworkStart);
-
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.employers[i].employer);
         formattedEmployer = formattedEmployer.replace("#", work.employers[i].url)
         $(".work-entry:last").append(formattedEmployer);
@@ -197,12 +201,6 @@ work.display = function() {
         {
             var formattedTitle = HTMLworkTitle.replace("%data%", work.employers[i].jobs[j].position);
             $(".work-entry:last").append(formattedTitle);
-
-            //var formattedLoc = HTMLworkLocation.replace("%data%", work.employers[i].jobs[j].location);
-            //$(".work-entry:last").append(formattedLoc);
-
-            //var formattedDate = HTMLworkDates.replace("%data%", work.employers[i].jobs[j].dates);
-            //$(".work-entry:last").append(formattedDate);
 
             var formattedLocDate = HTMLworkLocation.replace("%data%", work.employers[i].jobs[j].location +" : "+ work.employers[i].jobs[j].dates);
             $(".work-entry:last").append(formattedLocDate);
@@ -297,15 +295,12 @@ education.display = function () {
         $(".education-entry:last").append(formattedDate);
     }
 }
-/*
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL
-*/
 
 education.display();
 
+/*
+TODO: Add description/images
+*/
 var projects = {
     "projects" : [
         {
@@ -344,35 +339,14 @@ projects.display = function () {
 
 projects.display();
 
-
-function displaywork()
-{
-    for (i in work.jobs)
-    {
-        $("#workExperience").append(HTMLworkStart);
-
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].position);
-        $(".work-entry:last").append(formattedEmployer + formattedTitle);
-
-        var formattedDate = HTMLworkDates.replace("%data%", work.jobs[i].dates);
-        $(".work-entry:last").append(formattedDate);
-
-        var formattedLoc = HTMLworkLocation.replace("%data%", work.jobs[i].location);
-        $(".work-entry:last").append(formattedLoc);
-
-        var formattedDes = HTMLworkDescription.replace("%data%", work.jobs[i].description);
-        $(".work-entry:last").append(formattedDes);
-    }
-}
-
-
+/*
 $(document).click(function(loc)
 {
     logClicks(loc.pageX, loc.pageY);
 }
 );
-
+*/
+/*
 $("#main").append(internationalizeButton);
 
 function inName( oldname )
@@ -383,5 +357,5 @@ function inName( oldname )
 
     return first + " " + last;
 }
-
+*/
 $("#mapDiv").append(googleMap);
