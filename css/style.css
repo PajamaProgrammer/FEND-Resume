@@ -38,7 +38,19 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+h2 {
+      border-bottom: 2px solid #333;
+}
+
+.text-thin {
+  font-weight: 100;
+}
+
+.text-heavy {
+  font-weight: 900;
 }
 
 .text-right {
@@ -137,6 +149,10 @@ a {
   /*margin-top: 10px;*/
   display: block;
 }
+a:hover {
+  color:inherit;
+  text-decoration: none;
+}
 
 .add-margin-top {
   margin-top: 10px;
@@ -172,6 +188,10 @@ a {
 }
 
 .orange-text {
+  color: #f5ae23;
+}
+
+.orange-text:hover {
   color: #f5ae23;
 }
 
@@ -232,12 +252,38 @@ span {
   text-align: center;
 }
 
-/* Media queries to handle various device widths */
+/*
+  #topContacts h2{
+    text-align: right;
+  }
+  */
+  #topContacts ul li{
+    display: block;
+    border-bottom: 1px solid #333;
+    padding: 5px 0;
+  }
+  #topContacts ul li span{
+    padding-right:20px;
+  }
+/* Media queries to handle various device widths
+@media (min-width: 1200px) {
 
+  #topContacts h2 {
+    border-bottom: 2px solid #333;
+  }
+  #topContacts{
+    float: right;
+}
+}
+*/
 @media only screen and (max-width: 1024px) {
   #lets-connect {
     margin-top: 5%;
   }
+
+  #topContacts {
+    float: right;
+}
 }
 
 @media only screen and (max-width:900px) {
@@ -267,7 +313,7 @@ span {
 #mapDiv {
   height: 400px;
   width: 100%;
-  padding-bottom: 6%;
+  padding-bottom: 10%;
 }
 
 @media only screen and (min-width: 750px) {
@@ -276,3 +322,24 @@ span {
     display: block;
   }
 }
+/*
+@media only screen and (min-width : 320px) {
+  #topContacts{
+    float: left;
+  }
+  #topContacts h2{
+    text-align: left;
+
+  }
+
+  #topContacts ul li{
+    display: inline-block;
+    border-bottom: none;
+    padding: 5px;
+  }
+  #topContacts ul li span{
+    margin: 0;
+    padding-right: 5px;
+  }
+}
+*/

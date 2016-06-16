@@ -18,6 +18,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <title>Resume</title>
 
   <!-- Load the page styles. -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link href="css/style.css" rel="stylesheet">
 
   <!--
@@ -34,16 +35,20 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   you can't accomplish with vanilla (regular) JavaScript.
   -->
   <script src="js/jQuery.js"></script>
-
+  <script src="js/bootstrap.min.js"></script>
   <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <!-- Chart.js -->
+  <script src="js/Chart.js"></script>
+
+  <!-- Google Maps-->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
-  <div id="main">
+  <div id="main" class="container">
 
     <!--
     Everything from here to the <script> tag below is the skeleton of your
@@ -51,27 +56,53 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
-    <div id="header" class="center-content clear-fix">
-      <ul id="topContacts" class="flex-box"></ul>
-    </div>
+    <!-- The Header -->
+    <header>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="header" class="header-info"></div>
+        </div>
+        <div class="col-md-3">
+          <h2 class="fontawesome-wrench"> SKILLS</h2>
+          <div id="skills-list"></div>
+          <div id="skills-chart-holder" class="text-center skills-chart-holder">
+            <canvas id="skills-chart" width="300" height="300"></canvas>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div id="topContacts">
+            <h2 class="fontawesome-plus"> CONTACTS</h2>
+            <ul class="contact-list"></ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <div style="clear: both;"></div>
-    <div id="workExperience" class="gray">
+
+    <div id="workExperience" class="row">
       <h2 class="fontawesome-book"> Work Experience</h2><hr>
     </div>
-    <div id="projects">
+    <div id="projects" class="row">
       <h2 class="fontawesome-cogs"> Projects</h2><hr>
     </div>
-    <div id="education" class="gray">
+    <div id="education" class="row">
       <h2 class="fontawesome-book"> Education</h2><hr>
     </div>
-    <div id="mapDiv">
+    <div  class="row">
+      <div id="mapDiv" class="col-md-12">
       <h2 class="fontawesome-map-marker"> Where I've Lived and Worked</h2><hr>
+      </div>
     </div>
-    <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text fontawesome-plus"> Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
+
+    <!-- Footer -->
+    <footer class="row">
+      <div id="lets-connect" class="dark-gray">
+        <h2 class="orange center-text fontawesome-plus"> Let's Connect</h2>
+        <ul id="footerContacts" class="flex-box"></ul>
+      </div>
+    </footer>
+
   </div>
 
   <!--

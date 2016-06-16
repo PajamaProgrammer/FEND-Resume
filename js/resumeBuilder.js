@@ -1,7 +1,7 @@
 /* Biographical Information*/
 var bio = {
     "name" : "Rebecca Owen",
-    "role" : "Web Developer",
+    "role" : "Front-End Web Developer",
     "contacts" : {
         "mobile" : "1 (803) 237-3334",
         "email" : "rkowen@gmail.com",
@@ -11,9 +11,8 @@ var bio = {
         "location" : "Newberry, South Carolina"
     },
     "welcomeMessage" : "Hello World! I am a Computer Science Apprentance (studying to become a ninja) seeking interesting work and project opportunities.",
-    "skills" : [
-    "Python", "Java", "SQL", "HTML", "CSS", "Javascript", "C/C++"
-    ],
+    "skills" : ["Python", "Java", "SQL", "HTML", "CSS", "Javascript", "C/C++"],
+    "months" : [10, 5, 2, 1, 1, 1, 12],
     "picture" : "images/RKO_2016.jpg"
 };
 
@@ -21,8 +20,13 @@ bio.display = function () {
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").prepend(formattedRole);
 
-    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var names = bio.name.toUpperCase().split(" ");
+    var formattedName = HTMLheaderNameFirst.replace("%data%", names[0]);
+    formattedName = formattedName + HTMLheaderNameLast.replace("%data%", names[1]);
     $("#header").prepend(formattedName);
+
+    var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
+    $("#header").append(formattedPic);
 
     var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedMsg);
@@ -40,14 +44,11 @@ bio.display = function () {
     {
         if (formattedContacts[i].length > 0)
         {
-            $("#topContacts").append(formattedContacts[i]);
+            $(".contact-list").append(formattedContacts[i]);
             $("#footerContacts").append(formattedContacts[i]);
         }
     }
-
-    var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
-    $("#header").append(formattedPic);
-
+/*
     if (bio.skills.length > 0)
     {
         $("#header").append(HTMLskillsStart);
@@ -58,6 +59,7 @@ bio.display = function () {
             $("#skills").append(formattedSkill);
         }
     }
+*/
 }
 
 bio.display();
@@ -359,3 +361,104 @@ function inName( oldname )
 }
 */
 $("#mapDiv").append(googleMap);
+
+var list = [
+        "Red",
+        "Green",
+        "Yellow",
+        "Grey",
+        "Blue"
+    ];
+// chartjs library from: http://www.chartjs.org/docs/#polar-area-chart
+var polarData = {
+    datasets: [{
+        data: bio.months,
+        backgroundColor: [
+            "#FF6384",
+            "#4BC0C0",
+            "#FFCE56",
+            "#E7E9ED",
+            "#36A2EB",
+            "#E56F19",
+            "#9950AE"
+        ],
+        label: 'My dataset' // for legend
+    }],
+    labels: bio.skills
+};
+
+console.log(list, bio.skills);
+/*
+[
+  {
+    value: 10,
+    color:"#F7464A",
+    highlight: "#FF5A5E",
+    label: "HTML",
+    labelcolor: "red"
+  },
+  {
+    value: 8,
+    color:"#F06613",
+    highlight: "#FF5A5E",
+    label: "CSS",
+    labelcolor: "orange"
+  },
+  {
+    value: 8,
+    color: "#46BFBD",
+    highlight: "#5AD3D1",
+    label: "Javascript",
+    labelcolor: "green"
+  },
+  {
+    value: 6,
+    color: "#FDB45C",
+    highlight: "#FFC870",
+    label: "MEAN stack",
+    labelcolor: "yellow"
+  },
+  {
+    value: 6,
+    color: "#949FB1",
+    highlight: "#A8B3C5",
+    label: "WordPress",
+    labelcolor: "gray"
+  },
+  {
+    value: 6,
+    color: "#23582b",
+    highlight: "#A8B3C5",
+    label: "Git",
+    labelcolor: "darker-green"
+  },
+  {
+    value: 5,
+    color: "#4D5360",
+    highlight: "#616774",
+    label: "Sass",
+    labelcolor: "darker-gray"
+  }
+
+  ];
+  */
+// Display a list of skill labels
+var skillsChartLabels = function(){
+    for (skill in polarData){
+      var skillLabel = polarData[skill].label;
+      var skillLabelColor = polarData[skill].labelcolor;
+      var skillHTML = '<span class="label ' + skillLabelColor + '">' + skillLabel + '</span>';
+      $("#skills-list").append(skillHTML);
+    }
+}
+
+// Call functions
+window.onload = function(){
+    var ctx = document.getElementById("skills-chart").getContext("2d");
+    window.myPolarArea = new Chart(ctx, {data: polarData, type: 'polarArea',
+        options: {}
+    });
+
+    // Call skillsChartLabels function defined
+    //skillsChartLabels();
+};

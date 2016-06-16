@@ -13,15 +13,16 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
+var HTMLheaderNameFirst = '<h1 id="name"><span class="text-thin">%data%</span>';
+var HTMLheaderNameLast = '<span class="text-heavy">%data%</span></h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text fontawesome-phone-sign"></span><span class="white-text"><a class="white-text hvr-float" href="tel:%data%">%data%</a></span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text fontawesome-envelope-alt"></span><span class="white-text"><a class="white-text hvr-float" href="mailto:%data%">%data%</a></span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text fontawesome-twitter-sign"></span><span class="white-text"><a class="white-text hvr-float" href="http://twitter.com/%data%">%data%</a></span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text fontawesome-github"></span><span class="white-text"><a class="white-text hvr-float" href="http://github.com/%data%">%data%</a></span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text fontawesome-link"></span><span class="white-text"><a class="white-text hvr-float" href="http://%data%">%data%</a></span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text fontawesome-globe"></span><span class="white-text"><a class="white-text hvr-float" href="http://www.google.com/maps/place/%data%">%data%</a></span></li>';
+var HTMLmobile = '<li class="flex-item"><a class="orange-text text-right hvr-float fontawesome-phone-sign" href="tel:%data%"> %data%</a></li>';
+var HTMLemail = '<li class="flex-item"><a class="orange-text hvr-float fontawesome-envelope-alt" href="mailto:%data%"> %data%</a></li>';
+var HTMLtwitter = '<li class="flex-item"><a class="orange-text hvr-float fontawesome-twitter-sign" href="http://twitter.com/%data%"> %data%</a></li>';
+var HTMLgithub = '<li class="flex-item"><a class="orange-text hvr-float fontawesome-github" href="http://github.com/%data%"> %data%</a></li>';
+var HTMLblog = '<li class="flex-item"><a class="orange-text hvr-float fontawesome-link" href="http://%data%"> %data%</a></li>';
+var HTMLlocation = '<li class="flex-item"><a class="orange-text hvr-float fontawesome-globe" href="http://www.google.com/maps/place/%data%"> %data%</a></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';

@@ -2,4 +2,6 @@
 
 In this project I used JavaScript, JQuery, HTML, and CSS to build an interactive resume. 
 
+Test Version is to modify the resume with bootstrap...
+
 The resume is hosted on github and can be viewed [here](http://pajamaprogrammer.github.io/frontend-nanodegree-resume/).
