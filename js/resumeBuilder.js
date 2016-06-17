@@ -71,7 +71,7 @@ function getMonths (date)
     }
 
     return months;
-}
+};
 
 bio.display = function () {
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -109,7 +109,7 @@ bio.display = function () {
             $("#footerContacts").append(formattedContacts[i]);
         }
     }
-}
+};
 
 bio.display();
 
@@ -233,7 +233,7 @@ var work = {
             ]
         }
     ]
-}
+};
 
 work.display = function() {
 
@@ -272,7 +272,7 @@ work.display = function() {
             }
         }
     }
-}
+};
 
 work.display();
 
@@ -353,7 +353,7 @@ education.display = function () {
         var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
         $(".education-entry:last").append(formattedDate);
     }
-}
+};
 
 education.display();
 
@@ -366,8 +366,8 @@ var projects = {
             "title" : "Portfolio",
             "dates" : "June 2016",
             "description" :
-            "My first project in Udacity's Front-End Web Development Nanodegree program. \
-            This web development portfolio is a continuous work-in-progress as I continue to learn, modify, and add projects!.",
+            "My first project in Udacity's Front-End Web Development Nanodegree program." +
+            "This web development portfolio is a continuous work-in-progress as I continue to learn, modify, and add projects!.",
 
             "image" : "images/img_gr/PortfolioImage-800_medium_1x.jpg",
             "url" : "http://pajamaprogrammer.github.io/FEND-Portfolio",
@@ -377,10 +377,10 @@ var projects = {
             "title" : "Resume",
             "dates" : "June 2016",
             "description" :
-            "My second project in Udacity's Front-End Web Development Nanodegree program. \
-            This online resume dynamically creates page content from data retrieved from Javascript Objects (JSON); \
-            allowing for quick and easy (and not so easy) edits and updates. This project also makes use of some \
-            fun features - Google Maps, an interactive chart to display my skills, and a few easter eggs :)",
+            "My second project in Udacity's Front-End Web Development Nanodegree program." +
+            "This online resume dynamically creates page content from data retrieved from Javascript Objects (JSON);" +
+            "allowing for quick and easy (and not so easy) edits and updates. This project also makes use of some" +
+            "fun features - Google Maps, an interactive chart to display my skills, and a few easter eggs :)",
 
             "image" : "images/img_gr/ResumeImage-800_medium_1x.jpg",
             "url" : "http://pajamaprogrammer.github.io/FEND-Resume",
@@ -456,7 +456,7 @@ projects.display = function () {
         var formatedPopupFooter = HTMLProjectPopupFooter.replace("%data%", projects.projects[i].git);
         $(".modal-footer:last").append(formatedPopupFooter);
     }
-}
+};
 
 projects.display();
 
