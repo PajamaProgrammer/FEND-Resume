@@ -32,7 +32,7 @@ var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a class="add-margin-top employer-text hvr-float orange-text text-heavy" href="#">%data%</a>';
+var HTMLworkEmployer = '<a name = "#" class="add-margin-top employer-text hvr-float orange-text text-heavy" href="#">%data%</a>';
 var HTMLworkTitle = '<a class = "indent orange-text" href="#"> %data%</a>';
 var HTMLworkDates = '<div class="date-text indent">%data%</div>';
 var HTMLworkLocation = '<div class="location-text indent">%data%</div>';
@@ -52,7 +52,7 @@ var HTMPprojectCard = '<img src="%data%" class="img-responsive" data-toggle="mod
 var HTMLprojectPopupStart = '<div class="modal fade" id="project%data%" tabindex="-1" role="dialog" aria-labelledby="myModalLabel%data%" aria-hidden="true"></div>';
 var HTMLprojectPopup = '<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><span class="modal-title" id="myModalLabel%data%"></span></div><div class="modal-body"></div><div class="modal-footer"></div></div></div>';
 var HTMLprojectPopupImageLink = '<a href="%data%"><img class="img-responsive" src="%data%" alt="%data%"></a>';
-var HTMLProjectPopupFooter = '<a class="fontawesome-github float-left" href="%data%"></a><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+var HTMLProjectPopupFooter = '<a class="fontawesome-github pull-left" href="%data%"></a><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a class="add-margin-top hvr-float display-block orange-text text-heavy" href="#">%data%';

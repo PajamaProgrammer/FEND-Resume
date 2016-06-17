@@ -1,3 +1,9 @@
+/*
+TODO: Add collapsible panels - I believe bootstrap supports this...
+The page has a lot of information presented, I think it would be a nice touch
+to be able to collapse some of the information... Future Project!
+*/
+
 /* Biographical Information*/
 var bio = {
     "name" : "Rebecca Owen",
@@ -11,7 +17,8 @@ var bio = {
         "location" : "Newberry, South Carolina"
     },
     "welcomeMessage" : "Hello World! I am a Computer Science Apprentance. My goal is to become a ninja. Seeking interesting work and project opportunities.",
-    "colors" : [
+
+    "colors" : [                //Each skill below is assigned a color that will be used for the polar skill chart.
         "#FF6384",
         "#4BC0C0",
         "#FFCE56",
@@ -31,7 +38,7 @@ var bio = {
         "Git",
         "CSS"],
 
-    "months" : [
+    "months" : [                //represents the start date of each new skill
         new Date("2016 Jun 6"),
         new Date("2016 Jun 6"),
         new Date("2016 Apr 7"),
@@ -47,7 +54,7 @@ var bio = {
 //var skills = [ "HTML", "CSS", "Javascript", "SQL", "Java","Git", "Python", "C/C++"];
 //var dates = [new Date("2016 Jun 6"), new Date("2016 Jun 6"), new Date("2016 Jun 6"), new Date("2016 Apr 7"), new Date("2016 Jan 28"), new Date("2015 Oct 28"), new Date("2015 Nov 12"), new Date("2015 Nov 12")];
 
-//Function will convert a Date object (list of Date Objects) into a list of elapsed months
+//Function will convert a Date object (list of Date Objects) into a list of elapsed time in months
 function getMonths (date)
 {
     var months = [];
@@ -235,7 +242,8 @@ work.display = function() {
     for (var i in work.employers)
     {
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.employers[i].employer);
-        formattedEmployer = formattedEmployer.replace("#", work.employers[i].url)
+        formattedEmployer = formattedEmployer.replace("#", "EMP-"+i);
+        formattedEmployer = formattedEmployer.replace("#", work.employers[i].url);
         $(".work-entry:last").append(formattedEmployer);
 
         var formattedDes = HTMLworkDescription.replace("%data%", work.employers[i].description);
@@ -244,6 +252,7 @@ work.display = function() {
         for (var j in work.employers[i].jobs)
         {
             var formattedTitle = HTMLworkTitle.replace("%data%", work.employers[i].jobs[j].position);
+            formattedTitle = formattedTitle.replace("#", "#EMP-"+i);
             $(".work-entry:last").append(formattedTitle);
 
             //var formattedLocDate = HTMLworkLocation.replace("%data%", work.employers[i].jobs[j].location +" : "+ work.employers[i].jobs[j].dates);
@@ -328,7 +337,7 @@ education.display = function () {
             $(".education-entry:last").append(formattedMinor);
         }
 
-        var formattedGPA = HTMLschoolGPA.replace("%data%", education.schools[i].gpa)
+        var formattedGPA = HTMLschoolGPA.replace("%data%", education.schools[i].gpa);
         $(".education-entry:last").append(formattedGPA);
     }
 
@@ -337,11 +346,11 @@ education.display = function () {
     for (i in education.onlineCourses)
     {
         var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
-        formattedTitle = formattedTitle.replace("#", education.onlineCourses[i].url)
-        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school)
+        formattedTitle = formattedTitle.replace("#", education.onlineCourses[i].url);
+        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
         $(".education-entry:last").append(formattedTitle + formattedSchool);
 
-        var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates)
+        var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
         $(".education-entry:last").append(formattedDate);
     }
 }
@@ -349,7 +358,7 @@ education.display = function () {
 education.display();
 
 /*
-TODO: Add description/images
+TODO: Add description/images as projects are added
 */
 var projects = {
     "projects" : [
@@ -432,7 +441,7 @@ projects.display = function () {
         $(".modal:last").append(formattedPopup);
 
         var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
-        formattedTitle = formattedTitle.replace("#", projects.projects[i].url)
+        formattedTitle = formattedTitle.replace("#", projects.projects[i].url);
         $(".modal-title:last").append(formattedTitle);
 
         var formattedDate = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
@@ -472,7 +481,7 @@ function inName( oldname )
 */
 $("#mapDiv").append(googleMap);
 
-// chartjs library from: http://www.chartjs.org/docs/#polar-area-chart
+// chartjs library from: http://www.chartjs.org/docs/#polar-area-chart - Used for displaying skills
 var polarData = {
     datasets: [{
         data: getMonths(bio.months),
