@@ -11,15 +11,43 @@ var bio = {
         "location" : "Newberry, South Carolina"
     },
     "welcomeMessage" : "Hello World! I am a Computer Science Apprentance. My goal is to become a ninja. Seeking interesting work and project opportunities.",
-    "skills" : ["Javascript", "SQL", "HTML", "Java", "Git", "Python", "C/C++", "CSS"],
-    "months" : [new Date("2016 Jun 6"), new Date("2016 Apr 7"), new Date("2016 Jun 6"), new Date("2016 Jan 28"), new Date("2015 Oct 28"), new Date("2015 Nov 12"), new Date("2015 Nov 12"), new Date("2016 Jun 6")],
-    "colors" : [ "#FF6384", "#4BC0C0", "#FFCE56", "#E7E9ED", "#36A2EB", "#E56F19", "#9950AE", "#045600"],
+    "colors" : [
+        "#FF6384",
+        "#4BC0C0",
+        "#FFCE56",
+        "#E7E9ED",
+        "#36A2EB",
+        "#E56F19",
+        "#9950AE",
+        "#045600"],
+
+    "skills" : [
+        "Javascript",
+        "HTML",
+        "SQL",
+        "Java",
+        "Python",
+        "C/C++",
+        "Git",
+        "CSS"],
+
+    "months" : [
+        new Date("2016 Jun 6"),
+        new Date("2016 Jun 6"),
+        new Date("2016 Apr 7"),
+        new Date("2016 Jan 28"),
+        new Date("2015 Nov 12"),
+        new Date("2015 Nov 12"),
+        new Date("2015 Oct 28"),
+        new Date("2016 Jun 6")],
+
     "picture" : ["images/RKO_2016.jpg", "images/theNinja.jpg"]
 };
 
 //var skills = [ "HTML", "CSS", "Javascript", "SQL", "Java","Git", "Python", "C/C++"];
 //var dates = [new Date("2016 Jun 6"), new Date("2016 Jun 6"), new Date("2016 Jun 6"), new Date("2016 Apr 7"), new Date("2016 Jan 28"), new Date("2015 Oct 28"), new Date("2015 Nov 12"), new Date("2015 Nov 12")];
 
+//Function will convert a Date object (list of Date Objects) into a list of elapsed months
 function getMonths (date)
 {
     var months = [];
@@ -247,7 +275,7 @@ var education = {
             "degree" : "B.S.",
             "major" : "Computer Science",
             "minor" : [],
-            "dates" : "Sep 2015 - Sep 2018",
+            "dates" : "Sep 2015 - Present",
             "url" : "http://www.msstate.edu/",
             "gpa" : "4.00/4.00"
         },
@@ -326,9 +354,33 @@ TODO: Add description/images
 var projects = {
     "projects" : [
         {
+            "title" : "Portfolio",
+            "dates" : "June 2016",
+            "description" :
+            "My first project in Udacity's Front-End Web Development Nanodegree program. \
+            This web development portfolio is a continuous work-in-progress as I continue to learn, modify, and add projects!.",
+
+            "image" : "images/img_gr/PortfolioImage-800_medium_1x.jpg",
+            "url" : "http://pajamaprogrammer.github.io/FEND-Portfolio",
+            "git" : "https://github.com/PajamaProgrammer/FEND-Portfolio"
+        },
+        {
+            "title" : "Resume",
+            "dates" : "June 2016",
+            "description" :
+            "My second project in Udacity's Front-End Web Development Nanodegree program. \
+            This online resume dynamically creates page content from data retrieved from Javascript Objects (JSON); \
+            allowing for quick and easy (and not so easy) edits and updates. This project also makes use of some \
+            fun features - Google Maps, an interactive chart to display my skills, and a few easter eggs :)",
+
+            "image" : "images/img_gr/ResumeImage-800_medium_1x.jpg",
+            "url" : "http://pajamaprogrammer.github.io/FEND-Resume",
+            "git" : "https://github.com/PajamaProgrammer/FEND-Resume"
+        },
+        {
             "title" : "Sample Project 1",
             "dates" : "2016",
-            "description" : "I really should put a description here",
+            "description" : "Just a Place Holder - Project Coming Soon!",
             "image" : "images/SpacePlaceHolder_Project1.jpg",
             "url" : "http://pajamaprogrammer.github.io",
             "git" : "https://github.com/PajamaProgrammer"
@@ -336,7 +388,7 @@ var projects = {
         {
             "title" : "Sample Project 2",
             "dates" : "2016",
-            "description" : "I really should put a description here",
+            "description" : "Just a Place Holder - Project Coming Soon!",
             "image" : "images/SpacePlaceHolder_Project2.jpg",
             "url" : "http://pajamaprogrammer.github.io",
             "git" : "https://github.com/PajamaProgrammer"
@@ -344,7 +396,7 @@ var projects = {
         {
             "title" : "Sample Project 3",
             "dates" : "2016",
-            "description" : "I really should put a description here",
+            "description" : "Just a Place Holder - Project Coming Soon!",
             "image" : "images/SpacePlaceHolder_Project3.jpg",
             "url" : "http://pajamaprogrammer.github.io",
             "git" : "https://github.com/PajamaProgrammer"
@@ -352,7 +404,7 @@ var projects = {
         {
             "title" : "Sample Project 4",
             "dates" : "2016",
-            "description" : "I really should put a description here",
+            "description" : "Just a Place Holder - Project Coming Soon!",
             "image" : "images/SpacePlaceHolder_Project4.jpg",
             "url" : "http://pajamaprogrammer.github.io",
             "git" : "https://github.com/PajamaProgrammer"
@@ -382,6 +434,9 @@ projects.display = function () {
         var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
         formattedTitle = formattedTitle.replace("#", projects.projects[i].url)
         $(".modal-title:last").append(formattedTitle);
+
+        var formattedDate = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
+        $(".modal-title:last").append(formattedDate);
 
         var formattedPopupImage = HTMLprojectPopupImageLink.replace("%data%", projects.projects[i].url);
         formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].image);

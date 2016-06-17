@@ -286,6 +286,10 @@ img, embed, object, video {
   box-shadow: 0 0 2px 2px rgba(0, 140, 186, 0.5);
 }
 
+.modal-title a {
+  font-size: 18px;
+}
+
 .modal-body {
     border-radius: 5px;
 }
