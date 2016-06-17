@@ -24,15 +24,16 @@ var HTMLgithub = '<li class="flex-item"><a class="orange-text hvr-float fontawes
 var HTMLblog = '<li class="flex-item"><a class="orange-text hvr-float fontawesome-link" href="http://%data%"> %data%</a></li>';
 var HTMLlocation = '<li class="flex-item"><a class="orange-text hvr-float fontawesome-globe" href="http://www.google.com/maps/place/%data%"> %data%</a></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLbioPicStart = '<a class="biopic" href="#">';
+var HTMLbioPic = '<img src="%data%" class="">';
+var HTMLwelcomeMsg = '<span class="orange-text welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a class="add-margin-top employer-text hvr-float" href="#">%data%</a>';
-var HTMLworkTitle = '<a class = "indent" href="#"> %data%</a>';
+var HTMLworkEmployer = '<a class="add-margin-top employer-text hvr-float orange-text text-heavy" href="#">%data%</a>';
+var HTMLworkTitle = '<a class = "indent orange-text" href="#"> %data%</a>';
 var HTMLworkDates = '<div class="date-text indent">%data%</div>';
 var HTMLworkLocation = '<div class="location-text indent">%data%</div>';
 var HTMLworkDescription = '<p>%data%<br><br></p>';
@@ -40,13 +41,21 @@ var HTMLworkBulletStart = '<div><ul class="flex-box bullet-list"></ul></div>';
 var HTMLworkBullet = '<li class="display-block fontawesome-circle-arrow-right"><span class="bullet-entry"> %data%</span></li>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a class="hvr-float" href="#">%data%</a>';
+var HTMLprojectTitle = '<a class="add-margin-top hvr-float orange-text text-heavy" href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
+var HTMLprojectCardStart = '<article class="card-container"><div class="card"></div></article>'
+var HTMPprojectCard = '<img src="%data%" class="img-responsive" data-toggle="modal" data-target="#project%data%" alt="%data%">'
+
+var HTMLprojectPopupStart = '<div class="modal fade" id="project%data%" tabindex="-1" role="dialog" aria-labelledby="myModalLabel%data%" aria-hidden="true"></div>';
+var HTMLprojectPopup = '<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><span class="modal-title" id="myModalLabel%data%"></span></div><div class="modal-body"></div><div class="modal-footer"></div></div></div>';
+var HTMLprojectPopupImageLink = '<a href="%data%"><img class="img-responsive" src="%data%" alt="%data%"></a>';
+var HTMLProjectPopupFooter = '<a class="fontawesome-github float-left" href="%data%"></a><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a class="add-margin-top hvr-float display-block" href="#">%data%';
+var HTMLschoolName = '<a class="add-margin-top hvr-float display-block orange-text text-heavy" href="#">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
@@ -55,9 +64,9 @@ var HTMLschoolMinor = '<em><br>Minor: %data%</em>';
 var HTMLschoolGPA = '<em><br>GPA: %data%</em>';
 
 var HTMLonlineClasses = '<h3 class="online-entry add-margin-top no-padding fontawesome-laptop"> Online Classes</h3>';
-var HTMLonlineTitle = '<a class="hvr-float add-margin-top" href="#">%data%';
+var HTMLonlineTitle = '<a class="hvr-float add-margin-top orange-text" href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
+var HTMLonlineDates = '<div class="date-text add-margin-top">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
@@ -66,7 +75,7 @@ var googleMap = '<div id="map"></div>';
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
+
 $(document).ready(function() {
   $('button').click(function() {
     var $name = $('#name');
@@ -74,7 +83,7 @@ $(document).ready(function() {
     $name.html(iName);
   });
 });
-
+*/
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
 */

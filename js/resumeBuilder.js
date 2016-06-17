@@ -10,11 +10,33 @@ var bio = {
         "blog"  : "www.pajamaprogrammer.com",
         "location" : "Newberry, South Carolina"
     },
-    "welcomeMessage" : "Hello World! I am a Computer Science Apprentance (studying to become a ninja) seeking interesting work and project opportunities.",
-    "skills" : ["Python", "Java", "SQL", "HTML", "CSS", "Javascript", "C/C++"],
-    "months" : [10, 5, 2, 1, 1, 1, 12],
-    "picture" : "images/RKO_2016.jpg"
+    "welcomeMessage" : "Hello World! I am a Computer Science Apprentance. My goal is to become a ninja. Seeking interesting work and project opportunities.",
+    "skills" : ["Javascript", "SQL", "HTML", "Java", "Git", "Python", "C/C++", "CSS"],
+    "months" : [new Date("2016 Jun 6"), new Date("2016 Apr 7"), new Date("2016 Jun 6"), new Date("2016 Jan 28"), new Date("2015 Oct 28"), new Date("2015 Nov 12"), new Date("2015 Nov 12"), new Date("2016 Jun 6")],
+    "colors" : [ "#FF6384", "#4BC0C0", "#FFCE56", "#E7E9ED", "#36A2EB", "#E56F19", "#9950AE", "#045600"],
+    "picture" : ["images/RKO_2016.jpg", "images/theNinja.jpg"]
 };
+
+//var skills = [ "HTML", "CSS", "Javascript", "SQL", "Java","Git", "Python", "C/C++"];
+//var dates = [new Date("2016 Jun 6"), new Date("2016 Jun 6"), new Date("2016 Jun 6"), new Date("2016 Apr 7"), new Date("2016 Jan 28"), new Date("2015 Oct 28"), new Date("2015 Nov 12"), new Date("2015 Nov 12")];
+
+function getMonths (date)
+{
+    var months = [];
+    for (i in date)
+    {
+        var time = Date.now() - date[i].getTime();
+        var s = time/1000;
+        var m = s/60;
+        var h = m/60;
+        var d = h/24;
+        var m = d/30;
+
+        months.push(Math.round(m));
+    }
+
+    return months;
+}
 
 bio.display = function () {
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -25,11 +47,15 @@ bio.display = function () {
     formattedName = formattedName + HTMLheaderNameLast.replace("%data%", names[1]);
     $("#header").prepend(formattedName);
 
-    var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
-    $("#header").append(formattedPic);
+    $(".header-info:last").append(HTMLbioPicStart);
+    for (j in bio.picture)
+    {
+        var formattedPic = HTMLbioPic.replace("%data%", bio.picture[j]);
+        $(".biopic:last").append(formattedPic);
+    }
 
     var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-    $("#header").append(formattedMsg);
+    $(".header-info:last").append(formattedMsg);
 
     var formattedContacts = [];
 
@@ -48,18 +74,6 @@ bio.display = function () {
             $("#footerContacts").append(formattedContacts[i]);
         }
     }
-/*
-    if (bio.skills.length > 0)
-    {
-        $("#header").append(HTMLskillsStart);
-
-        for (i in bio.skills)
-        {
-            var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
-            $("#skills").append(formattedSkill);
-        }
-    }
-*/
 }
 
 bio.display();
@@ -204,8 +218,14 @@ work.display = function() {
             var formattedTitle = HTMLworkTitle.replace("%data%", work.employers[i].jobs[j].position);
             $(".work-entry:last").append(formattedTitle);
 
-            var formattedLocDate = HTMLworkLocation.replace("%data%", work.employers[i].jobs[j].location +" : "+ work.employers[i].jobs[j].dates);
-            $(".work-entry:last").append(formattedLocDate);
+            //var formattedLocDate = HTMLworkLocation.replace("%data%", work.employers[i].jobs[j].location +" : "+ work.employers[i].jobs[j].dates);
+            //$(".work-entry:last").append(formattedLocDate);
+
+            var formattedLoc = HTMLworkLocation.replace("%data%", work.employers[i].jobs[j].location);
+            $(".work-entry:last").append(formattedLoc);
+
+            var formattedDate = HTMLworkDates.replace("%data%", work.employers[i].jobs[j].dates);
+            $(".work-entry:last").append(formattedDate);
 
             $(".work-entry:last").append(HTMLworkBulletStart);
             for (var k in work.employers[i].jobs[j].bullets)
@@ -309,33 +329,68 @@ var projects = {
             "title" : "Sample Project 1",
             "dates" : "2016",
             "description" : "I really should put a description here",
-            "images" : [
-                "images/SpacePlaceHolder_Project1.jpg"
-            ]
+            "image" : "images/SpacePlaceHolder_Project1.jpg",
+            "url" : "http://pajamaprogrammer.github.io",
+            "git" : "https://github.com/PajamaProgrammer"
         },
         {
             "title" : "Sample Project 2",
             "dates" : "2016",
             "description" : "I really should put a description here",
-            "images" : [
-                "images/SpacePlaceHolder_Project2.jpg"
-            ]
+            "image" : "images/SpacePlaceHolder_Project2.jpg",
+            "url" : "http://pajamaprogrammer.github.io",
+            "git" : "https://github.com/PajamaProgrammer"
+        },
+        {
+            "title" : "Sample Project 3",
+            "dates" : "2016",
+            "description" : "I really should put a description here",
+            "image" : "images/SpacePlaceHolder_Project3.jpg",
+            "url" : "http://pajamaprogrammer.github.io",
+            "git" : "https://github.com/PajamaProgrammer"
+        },
+        {
+            "title" : "Sample Project 4",
+            "dates" : "2016",
+            "description" : "I really should put a description here",
+            "image" : "images/SpacePlaceHolder_Project4.jpg",
+            "url" : "http://pajamaprogrammer.github.io",
+            "git" : "https://github.com/PajamaProgrammer"
         }
     ]
 };
 
 projects.display = function () {
+
+    $("#projects").append(HTMLprojectStart);
+
     for (var i in projects.projects)
     {
-        $("#projects").append(HTMLprojectStart);
-        $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projects[i].title));
-        $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[i].dates));
-        $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[i].description));
 
-        for (var j in projects.projects[i].images)
-        {
-            $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[i].images[j]));
-        }
+        $(".project-entry:last").append(HTMLprojectCardStart);
+        var formattedProjectCard = HTMPprojectCard.replace("%data%", projects.projects[i].image);
+        formattedProjectCard = formattedProjectCard.replace("%data%", i);
+        formattedProjectCard = formattedProjectCard.replace("%data%", projects.projects[i].title);
+        $(".card:last").append(formattedProjectCard);
+
+        var formattedPopup = HTMLprojectPopupStart.replace(/%data%/g, i);
+        $(".popup:last").append(formattedPopup);
+
+        formattedPopup = HTMLprojectPopup.replace(/%data%/g, i);
+        $(".modal:last").append(formattedPopup);
+
+        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
+        formattedTitle = formattedTitle.replace("#", projects.projects[i].url)
+        $(".modal-title:last").append(formattedTitle);
+
+        var formattedPopupImage = HTMLprojectPopupImageLink.replace("%data%", projects.projects[i].url);
+        formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].image);
+        formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].title);
+        $(".modal-body:last").append(formattedPopupImage);
+        $(".modal-body:last").append(HTMLprojectDescription.replace("%data%", projects.projects[i].description));
+
+        var formatedPopupFooter = HTMLProjectPopupFooter.replace("%data%", projects.projects[i].git);
+        $(".modal-footer:last").append(formatedPopupFooter);
     }
 }
 
@@ -362,95 +417,16 @@ function inName( oldname )
 */
 $("#mapDiv").append(googleMap);
 
-var list = [
-        "Red",
-        "Green",
-        "Yellow",
-        "Grey",
-        "Blue"
-    ];
 // chartjs library from: http://www.chartjs.org/docs/#polar-area-chart
 var polarData = {
     datasets: [{
-        data: bio.months,
-        backgroundColor: [
-            "#FF6384",
-            "#4BC0C0",
-            "#FFCE56",
-            "#E7E9ED",
-            "#36A2EB",
-            "#E56F19",
-            "#9950AE"
-        ],
+        data: getMonths(bio.months),
+        backgroundColor: bio.colors,
         label: 'My dataset' // for legend
     }],
     labels: bio.skills
 };
 
-console.log(list, bio.skills);
-/*
-[
-  {
-    value: 10,
-    color:"#F7464A",
-    highlight: "#FF5A5E",
-    label: "HTML",
-    labelcolor: "red"
-  },
-  {
-    value: 8,
-    color:"#F06613",
-    highlight: "#FF5A5E",
-    label: "CSS",
-    labelcolor: "orange"
-  },
-  {
-    value: 8,
-    color: "#46BFBD",
-    highlight: "#5AD3D1",
-    label: "Javascript",
-    labelcolor: "green"
-  },
-  {
-    value: 6,
-    color: "#FDB45C",
-    highlight: "#FFC870",
-    label: "MEAN stack",
-    labelcolor: "yellow"
-  },
-  {
-    value: 6,
-    color: "#949FB1",
-    highlight: "#A8B3C5",
-    label: "WordPress",
-    labelcolor: "gray"
-  },
-  {
-    value: 6,
-    color: "#23582b",
-    highlight: "#A8B3C5",
-    label: "Git",
-    labelcolor: "darker-green"
-  },
-  {
-    value: 5,
-    color: "#4D5360",
-    highlight: "#616774",
-    label: "Sass",
-    labelcolor: "darker-gray"
-  }
-
-  ];
-  */
-// Display a list of skill labels
-var skillsChartLabels = function(){
-    for (skill in polarData){
-      var skillLabel = polarData[skill].label;
-      var skillLabelColor = polarData[skill].labelcolor;
-      var skillHTML = '<span class="label ' + skillLabelColor + '">' + skillLabel + '</span>';
-      $("#skills-list").append(skillHTML);
-    }
-}
 
 // Call functions
 window.onload = function(){
@@ -458,7 +434,4 @@ window.onload = function(){
     window.myPolarArea = new Chart(ctx, {data: polarData, type: 'polarArea',
         options: {}
     });
-
-    // Call skillsChartLabels function defined
-    //skillsChartLabels();
 };

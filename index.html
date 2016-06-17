@@ -59,17 +59,16 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     <!-- The Header -->
     <header>
       <div class="row">
-        <div class="col-md-6">
-          <div id="header" class="header-info"></div>
-        </div>
-        <div class="col-md-3">
-          <h2 class="fontawesome-wrench"> SKILLS</h2>
-          <div id="skills-list"></div>
-          <div id="skills-chart-holder" class="text-center skills-chart-holder">
-            <canvas id="skills-chart" width="300" height="300"></canvas>
+        <div class="col-md-8">
+
+          <div id="header" class="row flex-box"></div>
+          <hr class="no-margin-top">
+          <div class="row">
+            <dir class="col-md-12 header-info"></dir>
           </div>
+
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div id="topContacts">
             <h2 class="fontawesome-plus"> CONTACTS</h2>
             <ul class="contact-list"></ul>
@@ -78,32 +77,56 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       </div>
     </header>
 
+  <!--
     <div style="clear: both;"></div>
+    -->
+    <!-- -->
+    <div class="row">
 
-    <div id="workExperience" class="row">
-      <h2 class="fontawesome-book"> Work Experience</h2><hr>
-    </div>
-    <div id="projects" class="row">
-      <h2 class="fontawesome-cogs"> Projects</h2><hr>
-    </div>
-    <div id="education" class="row">
-      <h2 class="fontawesome-book"> Education</h2><hr>
-    </div>
-    <div  class="row">
-      <div id="mapDiv" class="col-md-12">
-      <h2 class="fontawesome-map-marker"> Where I've Lived and Worked</h2><hr>
+      <!-- Skills / Projects -->
+      <div class="col-md-6">
+        <section>
+          <h2 class="fontawesome-wrench"> SKILLS</h2>
+          <div id="skills-chart-holder" class="text-center skills-chart-holder">
+            <canvas id="skills-chart" width="300" height="300"></canvas>
+          </div>
+        </section>
+        <section>
+          <div id="projects">
+            <h2 class="fontawesome-cogs"> Projects</h2>
+        </div>
+        </section>
+      </div>
+
+      <!-- Education / Work -->
+      <div class="col-md-6">
+        <div id="education" class="row">
+          <h2 class="fontawesome-book"> Education</h2>
+        </div>
+        <div id="workExperience" class="row">
+          <h2 class="fontawesome-book"> Work Experience</h2>
+        </div>
       </div>
     </div>
 
+    <!-- Google Maps -->
+    <section class="row">
+      <h2 class="fontawesome-map-marker add-margin-bottom"> Where I've Lived and Worked</h2>
+      <div id="mapDiv"></div>
+    </section>
+
     <!-- Footer -->
     <footer class="row">
-      <div id="lets-connect" class="dark-gray">
-        <h2 class="orange center-text fontawesome-plus"> Let's Connect</h2>
+      <div id="lets-connect" class="">
+        <h2 class="fontawesome-plus"> Let's Connect</h2>
         <ul id="footerContacts" class="flex-box"></ul>
       </div>
     </footer>
 
-  </div>
+    <!-- Project Popups (modal) -->
+    <div class="popup"></div>
+
+  </div> <!-- End Container -->
 
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
@@ -158,5 +181,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       document.getElementById('mapDiv').style.display = 'none';
     }
   </script>
+
 </body>
 </html>
