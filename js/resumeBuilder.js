@@ -15,7 +15,7 @@ var bio = {
         "blog": "www.pajamaprogrammer.com",
         "location": "Newberry, South Carolina"
     },
-    "welcomeMessage": "Hello World! I am a Computer Science Apprentance. My goal is to become a ninja. Seeking interesting work and project opportunities.",
+    "welcomeMessage": "Hello World! I am a Computer Science Apprentice. My goal is to become a ninja. Seeking interesting work and project opportunities.",
 
     "colors": [ //Each skill below is assigned a color that will be used for the polar skill chart.
         "#FF6384",

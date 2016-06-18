@@ -11,7 +11,11 @@ The resume is hosted on github and can be viewed [here](http://pajamaprogrammer.
 [Udacity Style Guide](https://udacity.github.io/frontend-nanodegree-styleguide/).
 
 [JS Hint](http://jshint.com/).
+
 [JS Beautifier](http://jsbeautifier.org/).
+
+
+[CSS Beautifier](http://html.fwpolice.com/css/).
 
 
 
