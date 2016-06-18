@@ -127,7 +127,7 @@ var work = {
             "dates": "Nov 2014 – Mar 2015",
             "location": "Kellyville, Oklahoma",
             "bullets": [
-                "Invitation to be instructor for the next generation of wireline field engineers. This was an on-loan assignment while waiting for my next assignment in Malabo, Equatorial Guinea – unfortunately the O&G downturn has severely impacted the African market."
+                "On-loan assignment as instructor while waiting for my next assignment in Malabo, Equatorial Guinea – unfortunately the O&G downturn severely impacted the African market."
             ]
         }, {
             "position": "General Field Engineer",
@@ -135,9 +135,9 @@ var work = {
             "location": "Pemba, Mozambique",
             "bullets": [
                 "Trusted with high-profile projects throughout the entire EAR (East Africa Remotes) with rig spread rates exceeding $250,000 per day",
-                "Lead Project Engineer for Anadarko’s Land Campaign – successfully managed crew, equipment, and project with zero Non-Productive Time (NPT), safety, health, or environmental incidents.",
+                "Acted as lead Project Engineer for Anadarko’s Land Campaign – successfully managed crew, equipment, and project with zero Non-Productive Time (NPT), safety, health, or environmental incidents.",
                 "Consistently praised for technical and coaching on performance appraisals",
-                "Actively worked towards implementing lean methodologies at the Pemba base – including a complete redesign of the shop floor layout to improve maintenance efficiency by eliminating waste and bottlenecks.",
+                "Worked towards implementing lean methodologies at the Pemba base – including a complete redesign of the shop floor layout to improve maintenance efficiency by eliminating waste and bottlenecks.",
                 "Applied engineering skills to re-build broken auto-trim machine (device that performs electrical integrity checks) and programming skills to completely update/create the software and required tool-specific scripts. Successfully brought the machine online so it could be implemented as part of the improved lean workflow."
             ]
         }, {
@@ -154,7 +154,7 @@ var work = {
             "bullets": [
                 "Promoted to highest grade level for field personnel",
                 "Wrote a technical training module for the TLD tool – the goal was to create a highly immersive learning module that would appeal to all types of learners (kinesthetic, visual, auditory, read-write). The module was still in use at Schlumberger’s training centers over three years later!",
-                "Also assigned as lead engineer for projects in Romania and Morocco"
+                "Assigned as lead engineer for projects in Romania and Morocco"
             ]
         }, {
             "position": "Senior Field Engineer",
@@ -173,7 +173,7 @@ var work = {
             "dates": "Aug 2006 – Mar 2009",
             "location": "Ras Shukier, Egypt",
             "bullets": [
-                "In the top 10% of my segment by attaining fixed-step promotion from junior field engineer to senior field engineer within two years",
+                "Achieved top 10% of my segment by attaining fixed-step promotion from junior field engineer to senior field engineer within two years",
                 "Consistently performed as “exceeds expectation” on performance appraisals",
                 "Conducted the first world-wide alpha-phase test of newly developed data acquisition software (Maxwell with MDT – Modular Formation Dynamics Tester)"
             ]
@@ -190,14 +190,14 @@ var work = {
             "dates": "Jan 2003 – May 2003",
             "location": "Gulfport, Mississippi",
             "bullets": [
-                "Trusted with design and implementation of indicator lights to alert the operators of when the main turbine’s electrical output was synchronized to the electrical grid."
+                "Designed and implemented indicator lights to alert the operators of when the main turbine’s electrical output was synchronized to the electrical grid."
             ]
         }, {
             "position": "Cooperative Work Student",
             "dates": "May 2002 – Aug 2002",
             "location": "Gulfport, Mississippi",
             "bullets": [
-                "Power Plant electrical drawing revisions using AutoCad.",
+                "Revised Power Plant electrical drawing using AutoCad.",
                 "Contractor coordination and completion of assigned work orders."
             ]
         }, {
@@ -205,7 +205,7 @@ var work = {
             "dates": "Aug 2001 – Dec 2001",
             "location": "Gulfport, Mississippi",
             "bullets": [
-                "Coal fineness and loss on ignition analysis/testing."
+                "Performed coal fineness and loss on ignition analysis/testing."
             ]
         }]
     }]
