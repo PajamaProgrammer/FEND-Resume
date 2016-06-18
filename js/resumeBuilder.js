@@ -50,7 +50,8 @@ var bio = {
         new Date("2016 Jun 6")
     ],
 
-    "picture": ["images/RKO_2016.jpg", "images/theNinja.jpg"]
+    "biopic": "images/RKO_2016.jpg",
+    "biopicAlt": "images/theNinja.jpg" //an added Easter Egg biopic
 };
 
 //var skills = [ "HTML", "CSS", "Javascript", "SQL", "Java","Git", "Python", "C/C++"];
@@ -83,10 +84,10 @@ bio.display = function() {
     $("#header").prepend(formattedName);
 
     $(".header-info:last").append(HTMLbioPicStart);
-    for (var j = 0; j < bio.picture.length; j++) {
-        var formattedPic = HTMLbioPic.replace("%data%", bio.picture[j]);
-        $(".biopic:last").append(formattedPic);
-    }
+    var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
+    $(".biopic:last").append(formattedPic);
+    var formattedPicAlt = HTMLbioPic.replace("%data%", bio.biopicAlt);
+    $(".biopic:last").append(formattedPicAlt);
 
     var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $(".header-info:last").append(formattedMsg);
@@ -116,9 +117,12 @@ locationFinder funtion in helper.js in order properly display every location on 
 var work = {
     "employers": [{
         "employer": "Schlumberger",
+        "title": "Wireline Field Engineer",
+        "location": "International",
+        "dates": "Aug 2016 - Mar 2015",
         "description": "Supervised crew in the operation and ongoing maintenance of data acquisition equipment in a dynamic, fast paced, high volume, high expectation work setting. Provided mostly open-hole formation evaluation services - Resistivity, Nuclear (density/porosity), Imaging, Sonic, Nuclear Magnetic Resonance, Formation Pressure Testing & Sampling, Seismic, Coring, etc - and analysis of downhole conditions to aid clients on critical decisions regarding production or abandonment of well.",
         "url": "http://www.slb.com/",
-        "jobs": [{
+        "jobs": [{ //Additional Details
             "position": "Wireline Open-Hole Instructor",
             "dates": "Nov 2014 – Mar 2015",
             "location": "Kellyville, Oklahoma",
@@ -176,9 +180,12 @@ var work = {
         }]
     }, {
         "employer": "Mississippi Power, a Southern Company",
+        "title": "Cooperative Work Student",
+        "location": "Gulfport, Mississippi",
+        "dates": "Aug 2001 - May 2003",
         "description": "Worked as an Engineer in Training at Plant Jack Watson under the direct supervision of a senior engineer",
         "url": "http://www.mississippipower.com/",
-        "jobs": [{
+        "jobs": [{ //Additional Details
             "position": "Cooperative Work Student",
             "dates": "Jan 2003 – May 2003",
             "location": "Gulfport, Mississippi",
@@ -247,8 +254,8 @@ var education = {
         "name": "University of the People",
         "location": "Pasadena, California",
         "degree": "B.S.",
-        "major": "Computer Science",
-        "minor": [],
+        "majors": ["Computer Science"],
+        "minors": [],
         "dates": "Sep 2015 - Present",
         "url": "http://www.msstate.edu/",
         "gpa": "4.00/4.00"
@@ -256,8 +263,8 @@ var education = {
         "name": "Mississippi State University",
         "location": "Starkville, MS",
         "degree": "B.S.",
-        "major": "Electrical Engineering",
-        "minor": ["Computer Science", "Mathematics"],
+        "majors": ["Electrical Engineering"],
+        "minors": ["Computer Science", "Mathematics"],
         "dates": "Jun 2000 - May 2006",
         "url": "http://www.uopeople.edu/",
         "gpa": "3.85/4.00"
@@ -265,7 +272,7 @@ var education = {
     "onlineCourses": [{
         "title": "Front-End Web Developer Nanodegree",
         "school": "Udacity",
-        "dates": "Jun 2016 - Present",
+        "date": "Jun 2016 - Present",
         "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
     }]
 };
@@ -285,14 +292,16 @@ education.display = function() {
         var formattedDate = HTMLschoolDates.replace("%data%", education.schools[i].dates);
         $(".education-entry:last").append(formattedDate);
 
-        var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
-        $(".education-entry:last").append(formattedMajor);
+        for (var l = 0; l < education.schools[i].majors.length; l++) {
+            var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors[l]);
+            $(".education-entry:last").append(formattedMajor);
+        }
 
         var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
         $(".education-entry:last").append(formattedDegree);
 
-        for (var j = 0; j < education.schools[i].minor.length; j++) {
-            var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[i].minor[j]);
+        for (var j = 0; j < education.schools[i].minors.length; j++) {
+            var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[i].minors[j]);
             $(".education-entry:last").append(formattedMinor);
         }
 
@@ -308,7 +317,7 @@ education.display = function() {
         var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[k].school);
         $(".education-entry:last").append(formattedTitle + formattedSchool);
 
-        var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[k].dates);
+        var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[k].date);
         $(".education-entry:last").append(formattedDates);
     }
 };
@@ -325,7 +334,7 @@ var projects = {
         "description": "My first project in Udacity's Front-End Web Development Nanodegree program." +
             "This web development portfolio is a continuous work-in-progress as I continue to learn, modify, and add projects!.",
 
-        "image": "images/img_gr/PortfolioImage-800_medium_1x.jpg",
+        "images": ["images/img_gr/PortfolioImage-800_medium_1x.jpg"],
         "url": "http://pajamaprogrammer.github.io/FEND-Portfolio",
         "git": "https://github.com/PajamaProgrammer/FEND-Portfolio"
     }, {
@@ -336,35 +345,35 @@ var projects = {
             "allowing for quick and easy (and not so easy) edits and updates. This project also makes use of some" +
             "fun features - Google Maps, an interactive chart to display my skills, and a few easter eggs :)",
 
-        "image": "images/img_gr/ResumeImage-800_medium_1x.jpg",
+        "images": ["images/img_gr/ResumeImage-800_medium_1x.jpg"],
         "url": "http://pajamaprogrammer.github.io/FEND-Resume",
         "git": "https://github.com/PajamaProgrammer/FEND-Resume"
     }, {
         "title": "Sample Project 1",
         "dates": "2016",
         "description": "Just a Place Holder - Project Coming Soon!",
-        "image": "images/SpacePlaceHolder_Project1.jpg",
+        "images": ["images/SpacePlaceHolder_Project1.jpg"],
         "url": "http://pajamaprogrammer.github.io",
         "git": "https://github.com/PajamaProgrammer"
     }, {
         "title": "Sample Project 2",
         "dates": "2016",
         "description": "Just a Place Holder - Project Coming Soon!",
-        "image": "images/SpacePlaceHolder_Project2.jpg",
+        "images": ["images/SpacePlaceHolder_Project2.jpg"],
         "url": "http://pajamaprogrammer.github.io",
         "git": "https://github.com/PajamaProgrammer"
     }, {
         "title": "Sample Project 3",
         "dates": "2016",
         "description": "Just a Place Holder - Project Coming Soon!",
-        "image": "images/SpacePlaceHolder_Project3.jpg",
+        "images": ["images/SpacePlaceHolder_Project3.jpg"],
         "url": "http://pajamaprogrammer.github.io",
         "git": "https://github.com/PajamaProgrammer"
     }, {
         "title": "Sample Project 4",
         "dates": "2016",
         "description": "Just a Place Holder - Project Coming Soon!",
-        "image": "images/SpacePlaceHolder_Project4.jpg",
+        "images": ["images/SpacePlaceHolder_Project4.jpg"],
         "url": "http://pajamaprogrammer.github.io",
         "git": "https://github.com/PajamaProgrammer"
     }]
@@ -377,7 +386,7 @@ projects.display = function() {
     for (var i = 0; i < projects.projects.length; i++) {
 
         $(".project-entry:last").append(HTMLprojectCardStart);
-        var formattedProjectCard = HTMPprojectCard.replace("%data%", projects.projects[i].image);
+        var formattedProjectCard = HTMPprojectCard.replace("%data%", projects.projects[i].images[0]);
         formattedProjectCard = formattedProjectCard.replace("%data%", i);
         formattedProjectCard = formattedProjectCard.replace("%data%", projects.projects[i].title);
         $(".card:last").append(formattedProjectCard);
@@ -396,7 +405,7 @@ projects.display = function() {
         $(".modal-title:last").append(formattedDate);
 
         var formattedPopupImage = HTMLprojectPopupImageLink.replace("%data%", projects.projects[i].url);
-        formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].image);
+        formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].images[0]);
         formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].title);
         $(".modal-body:last").append(formattedPopupImage);
         $(".modal-body:last").append(HTMLprojectDescription.replace("%data%", projects.projects[i].description));
