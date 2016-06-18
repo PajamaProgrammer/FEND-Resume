@@ -3,22 +3,21 @@ TODO: Add collapsible panels - I believe bootstrap supports this...
 The page has a lot of information presented, I think it would be a nice touch
 to be able to collapse some of the information... Future Project!
 */
-
 /* Biographical Information*/
 var bio = {
-    "name" : "Rebecca Owen",
-    "role" : "Front-End Web Developer",
-    "contacts" : {
-        "mobile" : "1 (803) 237-3334",
-        "email" : "rkowen@gmail.com",
-        "github" : "PajamaProgrammer",
-        "twitter" : "@PajamaProgramm1",
-        "blog"  : "www.pajamaprogrammer.com",
-        "location" : "Newberry, South Carolina"
+    "name": "Rebecca Owen",
+    "role": "Front-End Web Developer",
+    "contacts": {
+        "mobile": "1 (803) 237-3334",
+        "email": "rkowen@gmail.com",
+        "github": "PajamaProgrammer",
+        "twitter": "@PajamaProgramm1",
+        "blog": "www.pajamaprogrammer.com",
+        "location": "Newberry, South Carolina"
     },
-    "welcomeMessage" : "Hello World! I am a Computer Science Apprentance. My goal is to become a ninja. Seeking interesting work and project opportunities.",
+    "welcomeMessage": "Hello World! I am a Computer Science Apprentance. My goal is to become a ninja. Seeking interesting work and project opportunities.",
 
-    "colors" : [                //Each skill below is assigned a color that will be used for the polar skill chart.
+    "colors": [ //Each skill below is assigned a color that will be used for the polar skill chart.
         "#FF6384",
         "#4BC0C0",
         "#FFCE56",
@@ -26,9 +25,10 @@ var bio = {
         "#36A2EB",
         "#E56F19",
         "#9950AE",
-        "#045600"],
+        "#045600"
+    ],
 
-    "skills" : [
+    "skills": [
         "Javascript",
         "HTML",
         "SQL",
@@ -36,9 +36,10 @@ var bio = {
         "Python",
         "C/C++",
         "Git",
-        "CSS"],
+        "CSS"
+    ],
 
-    "months" : [                //represents the start date of each new skill
+    "months": [ //represents the start date of each new skill
         new Date("2016 Jun 6"),
         new Date("2016 Jun 6"),
         new Date("2016 Apr 7"),
@@ -46,34 +47,33 @@ var bio = {
         new Date("2015 Nov 12"),
         new Date("2015 Nov 12"),
         new Date("2015 Oct 28"),
-        new Date("2016 Jun 6")],
+        new Date("2016 Jun 6")
+    ],
 
-    "picture" : ["images/RKO_2016.jpg", "images/theNinja.jpg"]
+    "picture": ["images/RKO_2016.jpg", "images/theNinja.jpg"]
 };
 
 //var skills = [ "HTML", "CSS", "Javascript", "SQL", "Java","Git", "Python", "C/C++"];
 //var dates = [new Date("2016 Jun 6"), new Date("2016 Jun 6"), new Date("2016 Jun 6"), new Date("2016 Apr 7"), new Date("2016 Jan 28"), new Date("2015 Oct 28"), new Date("2015 Nov 12"), new Date("2015 Nov 12")];
 
 //Function will convert a Date object (list of Date Objects) into a list of elapsed time in months
-function getMonths (date)
-{
+function getMonths(date) {
     var months = [];
-    for (i in date)
-    {
+    for (var i = 0; i < date.length; i++) {
         var time = Date.now() - date[i].getTime();
-        var s = time/1000;
-        var m = s/60;
-        var h = m/60;
-        var d = h/24;
-        var m = d/30;
+        var s = time / 1000;
+        var m = s / 60;
+        var h = m / 60;
+        var d = h / 24;
+        var mo = d / 30;
 
-        months.push(Math.round(m));
+        months.push(Math.round(mo));
     }
 
     return months;
-};
+}
 
-bio.display = function () {
+bio.display = function() {
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").prepend(formattedRole);
 
@@ -83,8 +83,7 @@ bio.display = function () {
     $("#header").prepend(formattedName);
 
     $(".header-info:last").append(HTMLbioPicStart);
-    for (j in bio.picture)
-    {
+    for (var j = 0; j < bio.picture.length; j++) {
         var formattedPic = HTMLbioPic.replace("%data%", bio.picture[j]);
         $(".biopic:last").append(formattedPic);
     }
@@ -101,10 +100,8 @@ bio.display = function () {
     formattedContacts.push(HTMLblog.replace(/%data%/g, bio.contacts.blog));
     formattedContacts.push(HTMLlocation.replace(/%data%/g, bio.contacts.location));
 
-    for (var i in formattedContacts)
-    {
-        if (formattedContacts[i].length > 0)
-        {
+    for (var i = 0; i < formattedContacts.length; i++) {
+        if (formattedContacts[i].length > 0) {
             $(".contact-list").append(formattedContacts[i]);
             $("#footerContacts").append(formattedContacts[i]);
         }
@@ -117,142 +114,112 @@ bio.display();
 this object was modified to represent my work history. Which also meant modifying the
 locationFinder funtion in helper.js in order properly display every location on the map...*/
 var work = {
-    "employers" :
-    [
-        {
-            "employer" : "Schlumberger",
-            "description" : "Supervised crew in the operation and ongoing maintenance of data acquisition equipment in a dynamic, fast paced, high volume, high expectation work setting. Provided mostly open-hole formation evaluation services - Resistivity, Nuclear (density/porosity), Imaging, Sonic, Nuclear Magnetic Resonance, Formation Pressure Testing & Sampling, Seismic, Coring, etc - and analysis of downhole conditions to aid clients on critical decisions regarding production or abandonment of well.",
-            "url" : "http://www.slb.com/",
-            "jobs"  :
-            [
-                {
-                    "position" : "Wireline Open-Hole Instructor",
-                    "dates" : "Nov 2014 – Mar 2015",
-                    "location" : "Kellyville, Oklahoma",
-                    "bullets" :
-                        [
-                            "Invitation to be instructor for the next generation of wireline field engineers. This was an on-loan assignment while waiting for my next assignment in Malabo, Equatorial Guinea – unfortunately the O&G downturn has severely impacted the African market."
-                        ]
-                },
-                {
-                    "position" : "General Field Engineer",
-                    "dates" : "Nov 2012 – Nov 2014",
-                    "location" : "Pemba, Mozambique",
-                    "bullets" :
-                        [
-                            "Trusted with high-profile projects throughout the entire EAR (East Africa Remotes) with rig spread rates exceeding $250,000 per day",
-                            "Lead Project Engineer for Anadarko’s Land Campaign – successfully managed crew, equipment, and project with zero Non-Productive Time (NPT), safety, health, or environmental incidents.",
-                            "Consistently praised for technical and coaching on performance appraisals",
-                            "Actively worked towards implementing lean methodologies at the Pemba base – including a complete redesign of the shop floor layout to improve maintenance efficiency by eliminating waste and bottlenecks.",
-                            "Applied engineering skills to re-build broken auto-trim machine (device that performs electrical integrity checks) and programming skills to completely update/create the software and required tool-specific scripts. Successfully brought the machine online so it could be implemented as part of the improved lean workflow."
-                        ]
-                },
-                {
-                    "position" : "General Field Engineer",
-                    "dates" : "Jun 2011 – Nov 2012",
-                    "location" : "Roma, Australia",
-                    "bullets" :
-                        [
-                            "In charge of the seismic cell – managed crew, maintenance of equipment, and continuous training. Wrote the standard operating procedure (SOP) and several easy to follow tutorials. All seismic related projects were performed with a high-rate of success and zero NPT."
-                        ]
-                },
-                {
-                    "position" : "Senior to General Field Engineer",
-                    "dates" : "Jun 2010 – Jun 2011",
-                    "location" : "Diyarbakir, Turkey",
-                    "bullets" :
-                        [
-                            "Promoted to highest grade level for field personnel",
-                            "Wrote a technical training module for the TLD tool – the goal was to create a highly immersive learning module that would appeal to all types of learners (kinesthetic, visual, auditory, read-write). The module was still in use at Schlumberger’s training centers over three years later!",
-                            "Also assigned as lead engineer for projects in Romania and Morocco"
-                        ]
-                },
-                {
-                    "position" : "Senior Field Engineer",
-                    "dates" : "Jan 2010 – Jun 2010",
-                    "location" : "Malabo, Equatorial Guinea",
-                    "bullets" :
-                        []
-                },
-                {
-                    "position" : "Senior Field Engineer",
-                    "dates" : "Apr 2009 – Dec 2009",
-                    "location" : "Fahud, Oman",
-                    "bullets" :
-                        [
-                            "Main engineer for Daleel Petroleum – The client was unsatisfied with current pretest (formation pressure testing) methods. In response, I wrote the standard operating procedure (SOP) and implemented the ‘SMART’ pretest feature (and subsequent how-to manual) specifically for Daleel. Implementation of the ‘SMART’ pretest feature helped save the Schlumberger from losing this contract."
-                        ]
-                },
-                {
-                    "position" : "Junior to Senior Field Engineer",
-                    "dates" : "Aug 2006 – Mar 2009",
-                    "location" : "Ras Shukier, Egypt",
-                    "bullets" :
-                        [
-                            "In the top 10% of my segment by attaining fixed-step promotion from junior field engineer to senior field engineer within two years",
-                            "Consistently performed as “exceeds expectation” on performance appraisals",
-                            "Conducted the first world-wide alpha-phase test of newly developed data acquisition software (Maxwell with MDT – Modular Formation Dynamics Tester)"
-                        ]
-                }
+    "employers": [{
+        "employer": "Schlumberger",
+        "description": "Supervised crew in the operation and ongoing maintenance of data acquisition equipment in a dynamic, fast paced, high volume, high expectation work setting. Provided mostly open-hole formation evaluation services - Resistivity, Nuclear (density/porosity), Imaging, Sonic, Nuclear Magnetic Resonance, Formation Pressure Testing & Sampling, Seismic, Coring, etc - and analysis of downhole conditions to aid clients on critical decisions regarding production or abandonment of well.",
+        "url": "http://www.slb.com/",
+        "jobs": [{
+            "position": "Wireline Open-Hole Instructor",
+            "dates": "Nov 2014 – Mar 2015",
+            "location": "Kellyville, Oklahoma",
+            "bullets": [
+                "Invitation to be instructor for the next generation of wireline field engineers. This was an on-loan assignment while waiting for my next assignment in Malabo, Equatorial Guinea – unfortunately the O&G downturn has severely impacted the African market."
             ]
-        },
-        {
-            "employer" : "Mississippi Power, a Southern Company",
-            "description" : "Worked as an Engineer in Training at Plant Jack Watson under the direct supervision of a senior engineer",
-            "url" : "http://www.mississippipower.com/",
-            "jobs"  :
-            [
-                {
-                    "position" : "Cooperative Work Student",
-                    "dates" : "Jan 2003 – May 2003",
-                    "location" : "Gulfport, Mississippi",
-                    "bullets" :
-                        [
-                            "Trusted with design and implementation of indicator lights to alert the operators of when the main turbine’s electrical output was synchronized to the electrical grid."
-                        ]
-                },
-                {
-                    "position" : "Cooperative Work Student",
-                    "dates" : "May 2002 – Aug 2002",
-                    "location" : "Gulfport, Mississippi",
-                    "bullets" :
-                        [
-                            "Power Plant electrical drawing revisions using AutoCad.",
-                            "Contractor coordination and completion of assigned work orders."
-                        ]
-                },
-                {
-                    "position" : "Cooperative Work Student",
-                    "dates" : "Aug 2001 – Dec 2001",
-                    "location" : "Gulfport, Mississippi",
-                    "bullets" :
-                        [
-                            "Coal fineness and loss on ignition analysis/testing."
-                        ]
-                }
+        }, {
+            "position": "General Field Engineer",
+            "dates": "Nov 2012 – Nov 2014",
+            "location": "Pemba, Mozambique",
+            "bullets": [
+                "Trusted with high-profile projects throughout the entire EAR (East Africa Remotes) with rig spread rates exceeding $250,000 per day",
+                "Lead Project Engineer for Anadarko’s Land Campaign – successfully managed crew, equipment, and project with zero Non-Productive Time (NPT), safety, health, or environmental incidents.",
+                "Consistently praised for technical and coaching on performance appraisals",
+                "Actively worked towards implementing lean methodologies at the Pemba base – including a complete redesign of the shop floor layout to improve maintenance efficiency by eliminating waste and bottlenecks.",
+                "Applied engineering skills to re-build broken auto-trim machine (device that performs electrical integrity checks) and programming skills to completely update/create the software and required tool-specific scripts. Successfully brought the machine online so it could be implemented as part of the improved lean workflow."
             ]
-        }
-    ]
+        }, {
+            "position": "General Field Engineer",
+            "dates": "Jun 2011 – Nov 2012",
+            "location": "Roma, Australia",
+            "bullets": [
+                "In charge of the seismic cell – managed crew, maintenance of equipment, and continuous training. Wrote the standard operating procedure (SOP) and several easy to follow tutorials. All seismic related projects were performed with a high-rate of success and zero NPT."
+            ]
+        }, {
+            "position": "Senior to General Field Engineer",
+            "dates": "Jun 2010 – Jun 2011",
+            "location": "Diyarbakir, Turkey",
+            "bullets": [
+                "Promoted to highest grade level for field personnel",
+                "Wrote a technical training module for the TLD tool – the goal was to create a highly immersive learning module that would appeal to all types of learners (kinesthetic, visual, auditory, read-write). The module was still in use at Schlumberger’s training centers over three years later!",
+                "Also assigned as lead engineer for projects in Romania and Morocco"
+            ]
+        }, {
+            "position": "Senior Field Engineer",
+            "dates": "Jan 2010 – Jun 2010",
+            "location": "Malabo, Equatorial Guinea",
+            "bullets": []
+        }, {
+            "position": "Senior Field Engineer",
+            "dates": "Apr 2009 – Dec 2009",
+            "location": "Fahud, Oman",
+            "bullets": [
+                "Main engineer for Daleel Petroleum – The client was unsatisfied with current pretest (formation pressure testing) methods. In response, I wrote the standard operating procedure (SOP) and implemented the ‘SMART’ pretest feature (and subsequent how-to manual) specifically for Daleel. Implementation of the ‘SMART’ pretest feature helped save the Schlumberger from losing this contract."
+            ]
+        }, {
+            "position": "Junior to Senior Field Engineer",
+            "dates": "Aug 2006 – Mar 2009",
+            "location": "Ras Shukier, Egypt",
+            "bullets": [
+                "In the top 10% of my segment by attaining fixed-step promotion from junior field engineer to senior field engineer within two years",
+                "Consistently performed as “exceeds expectation” on performance appraisals",
+                "Conducted the first world-wide alpha-phase test of newly developed data acquisition software (Maxwell with MDT – Modular Formation Dynamics Tester)"
+            ]
+        }]
+    }, {
+        "employer": "Mississippi Power, a Southern Company",
+        "description": "Worked as an Engineer in Training at Plant Jack Watson under the direct supervision of a senior engineer",
+        "url": "http://www.mississippipower.com/",
+        "jobs": [{
+            "position": "Cooperative Work Student",
+            "dates": "Jan 2003 – May 2003",
+            "location": "Gulfport, Mississippi",
+            "bullets": [
+                "Trusted with design and implementation of indicator lights to alert the operators of when the main turbine’s electrical output was synchronized to the electrical grid."
+            ]
+        }, {
+            "position": "Cooperative Work Student",
+            "dates": "May 2002 – Aug 2002",
+            "location": "Gulfport, Mississippi",
+            "bullets": [
+                "Power Plant electrical drawing revisions using AutoCad.",
+                "Contractor coordination and completion of assigned work orders."
+            ]
+        }, {
+            "position": "Cooperative Work Student",
+            "dates": "Aug 2001 – Dec 2001",
+            "location": "Gulfport, Mississippi",
+            "bullets": [
+                "Coal fineness and loss on ignition analysis/testing."
+            ]
+        }]
+    }]
 };
 
 work.display = function() {
 
     $("#workExperience").append(HTMLworkStart);
 
-    for (var i in work.employers)
-    {
+    for (var i = 0; i < work.employers.length; i++) {
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.employers[i].employer);
-        formattedEmployer = formattedEmployer.replace("#", "EMP-"+i);
+        formattedEmployer = formattedEmployer.replace("#", "EMP-" + i);
         formattedEmployer = formattedEmployer.replace("#", work.employers[i].url);
         $(".work-entry:last").append(formattedEmployer);
 
         var formattedDes = HTMLworkDescription.replace("%data%", work.employers[i].description);
         $(".work-entry:last").append(formattedDes);
 
-        for (var j in work.employers[i].jobs)
-        {
+        for (var j = 0; j < work.employers[i].jobs.length; j++) {
             var formattedTitle = HTMLworkTitle.replace("%data%", work.employers[i].jobs[j].position);
-            formattedTitle = formattedTitle.replace("#", "#EMP-"+i);
+            formattedTitle = formattedTitle.replace("#", "#EMP-" + i);
             $(".work-entry:last").append(formattedTitle);
 
             //var formattedLocDate = HTMLworkLocation.replace("%data%", work.employers[i].jobs[j].location +" : "+ work.employers[i].jobs[j].dates);
@@ -265,8 +232,7 @@ work.display = function() {
             $(".work-entry:last").append(formattedDate);
 
             $(".work-entry:last").append(HTMLworkBulletStart);
-            for (var k in work.employers[i].jobs[j].bullets)
-            {
+            for (var k = 0; k < work.employers[i].jobs[j].bullets.length; k++) {
                 var formattedBullet = HTMLworkBullet.replace("%data%", work.employers[i].jobs[j].bullets[k]);
                 $(".bullet-list:last").append(formattedBullet);
             }
@@ -277,44 +243,38 @@ work.display = function() {
 work.display();
 
 var education = {
-    "schools" : [
-        {
-            "name" : "University of the People",
-            "location" : "Pasadena, California",
-            "degree" : "B.S.",
-            "major" : "Computer Science",
-            "minor" : [],
-            "dates" : "Sep 2015 - Present",
-            "url" : "http://www.msstate.edu/",
-            "gpa" : "4.00/4.00"
-        },
-        {
-            "name" : "Mississippi State University",
-            "location" : "Starkville, MS",
-            "degree" : "B.S.",
-            "major" : "Electrical Engineering",
-            "minor" : ["Computer Science", "Mathematics"],
-            "dates" : "Jun 2000 - May 2006",
-            "url" : "http://www.uopeople.edu/",
-            "gpa" : "3.85/4.00"
-        }
-    ] ,
-    "onlineCourses" : [
-        {
-            "title" : "Front-End Web Developer Nanodegree",
-            "school" : "Udacity",
-            "dates" : "Jun 2016 - Present",
-            "url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
-        }
-    ]
+    "schools": [{
+        "name": "University of the People",
+        "location": "Pasadena, California",
+        "degree": "B.S.",
+        "major": "Computer Science",
+        "minor": [],
+        "dates": "Sep 2015 - Present",
+        "url": "http://www.msstate.edu/",
+        "gpa": "4.00/4.00"
+    }, {
+        "name": "Mississippi State University",
+        "location": "Starkville, MS",
+        "degree": "B.S.",
+        "major": "Electrical Engineering",
+        "minor": ["Computer Science", "Mathematics"],
+        "dates": "Jun 2000 - May 2006",
+        "url": "http://www.uopeople.edu/",
+        "gpa": "3.85/4.00"
+    }],
+    "onlineCourses": [{
+        "title": "Front-End Web Developer Nanodegree",
+        "school": "Udacity",
+        "dates": "Jun 2016 - Present",
+        "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+    }]
 };
 
-education.display = function () {
+education.display = function() {
 
     $("#education").append(HTMLschoolStart);
 
-    for (i in education.schools)
-    {
+    for (var i = 0; i < education.schools.length; i++) {
         var formattedName = HTMLschoolName.replace("%data%", education.schools[i].name);
         formattedName = formattedName.replace("#", education.schools[i].url);
         $(".education-entry:last").append(formattedName);
@@ -331,8 +291,7 @@ education.display = function () {
         var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
         $(".education-entry:last").append(formattedDegree);
 
-        for (j in education.schools[i].minor)
-        {
+        for (var j = 0; j < education.schools[i].minor.length; j++) {
             var formattedMinor = HTMLschoolMinor.replace("%data%", education.schools[i].minor[j]);
             $(".education-entry:last").append(formattedMinor);
         }
@@ -343,15 +302,14 @@ education.display = function () {
 
     $(".education-entry:last").append(HTMLonlineClasses);
 
-    for (i in education.onlineCourses)
-    {
-        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
-        formattedTitle = formattedTitle.replace("#", education.onlineCourses[i].url);
-        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+    for (var k = 0; k < education.onlineCourses.length; k++) {
+        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[k].title);
+        formattedTitle = formattedTitle.replace("#", education.onlineCourses[k].url);
+        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[k].school);
         $(".education-entry:last").append(formattedTitle + formattedSchool);
 
-        var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
-        $(".education-entry:last").append(formattedDate);
+        var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[k].dates);
+        $(".education-entry:last").append(formattedDates);
     }
 };
 
@@ -361,72 +319,62 @@ education.display();
 TODO: Add description/images as projects are added
 */
 var projects = {
-    "projects" : [
-        {
-            "title" : "Portfolio",
-            "dates" : "June 2016",
-            "description" :
-            "My first project in Udacity's Front-End Web Development Nanodegree program." +
+    "projects": [{
+        "title": "Portfolio",
+        "dates": "June 2016",
+        "description": "My first project in Udacity's Front-End Web Development Nanodegree program." +
             "This web development portfolio is a continuous work-in-progress as I continue to learn, modify, and add projects!.",
 
-            "image" : "images/img_gr/PortfolioImage-800_medium_1x.jpg",
-            "url" : "http://pajamaprogrammer.github.io/FEND-Portfolio",
-            "git" : "https://github.com/PajamaProgrammer/FEND-Portfolio"
-        },
-        {
-            "title" : "Resume",
-            "dates" : "June 2016",
-            "description" :
-            "My second project in Udacity's Front-End Web Development Nanodegree program." +
+        "image": "images/img_gr/PortfolioImage-800_medium_1x.jpg",
+        "url": "http://pajamaprogrammer.github.io/FEND-Portfolio",
+        "git": "https://github.com/PajamaProgrammer/FEND-Portfolio"
+    }, {
+        "title": "Resume",
+        "dates": "June 2016",
+        "description": "My second project in Udacity's Front-End Web Development Nanodegree program." +
             "This online resume dynamically creates page content from data retrieved from Javascript Objects (JSON);" +
             "allowing for quick and easy (and not so easy) edits and updates. This project also makes use of some" +
             "fun features - Google Maps, an interactive chart to display my skills, and a few easter eggs :)",
 
-            "image" : "images/img_gr/ResumeImage-800_medium_1x.jpg",
-            "url" : "http://pajamaprogrammer.github.io/FEND-Resume",
-            "git" : "https://github.com/PajamaProgrammer/FEND-Resume"
-        },
-        {
-            "title" : "Sample Project 1",
-            "dates" : "2016",
-            "description" : "Just a Place Holder - Project Coming Soon!",
-            "image" : "images/SpacePlaceHolder_Project1.jpg",
-            "url" : "http://pajamaprogrammer.github.io",
-            "git" : "https://github.com/PajamaProgrammer"
-        },
-        {
-            "title" : "Sample Project 2",
-            "dates" : "2016",
-            "description" : "Just a Place Holder - Project Coming Soon!",
-            "image" : "images/SpacePlaceHolder_Project2.jpg",
-            "url" : "http://pajamaprogrammer.github.io",
-            "git" : "https://github.com/PajamaProgrammer"
-        },
-        {
-            "title" : "Sample Project 3",
-            "dates" : "2016",
-            "description" : "Just a Place Holder - Project Coming Soon!",
-            "image" : "images/SpacePlaceHolder_Project3.jpg",
-            "url" : "http://pajamaprogrammer.github.io",
-            "git" : "https://github.com/PajamaProgrammer"
-        },
-        {
-            "title" : "Sample Project 4",
-            "dates" : "2016",
-            "description" : "Just a Place Holder - Project Coming Soon!",
-            "image" : "images/SpacePlaceHolder_Project4.jpg",
-            "url" : "http://pajamaprogrammer.github.io",
-            "git" : "https://github.com/PajamaProgrammer"
-        }
-    ]
+        "image": "images/img_gr/ResumeImage-800_medium_1x.jpg",
+        "url": "http://pajamaprogrammer.github.io/FEND-Resume",
+        "git": "https://github.com/PajamaProgrammer/FEND-Resume"
+    }, {
+        "title": "Sample Project 1",
+        "dates": "2016",
+        "description": "Just a Place Holder - Project Coming Soon!",
+        "image": "images/SpacePlaceHolder_Project1.jpg",
+        "url": "http://pajamaprogrammer.github.io",
+        "git": "https://github.com/PajamaProgrammer"
+    }, {
+        "title": "Sample Project 2",
+        "dates": "2016",
+        "description": "Just a Place Holder - Project Coming Soon!",
+        "image": "images/SpacePlaceHolder_Project2.jpg",
+        "url": "http://pajamaprogrammer.github.io",
+        "git": "https://github.com/PajamaProgrammer"
+    }, {
+        "title": "Sample Project 3",
+        "dates": "2016",
+        "description": "Just a Place Holder - Project Coming Soon!",
+        "image": "images/SpacePlaceHolder_Project3.jpg",
+        "url": "http://pajamaprogrammer.github.io",
+        "git": "https://github.com/PajamaProgrammer"
+    }, {
+        "title": "Sample Project 4",
+        "dates": "2016",
+        "description": "Just a Place Holder - Project Coming Soon!",
+        "image": "images/SpacePlaceHolder_Project4.jpg",
+        "url": "http://pajamaprogrammer.github.io",
+        "git": "https://github.com/PajamaProgrammer"
+    }]
 };
 
-projects.display = function () {
+projects.display = function() {
 
     $("#projects").append(HTMLprojectStart);
 
-    for (var i in projects.projects)
-    {
+    for (var i = 0; i < projects.projects.length; i++) {
 
         $(".project-entry:last").append(HTMLprojectCardStart);
         var formattedProjectCard = HTMPprojectCard.replace("%data%", projects.projects[i].image);
@@ -493,9 +441,11 @@ var polarData = {
 
 
 // Call functions
-window.onload = function(){
+window.onload = function() {
     var ctx = document.getElementById("skills-chart").getContext("2d");
-    window.myPolarArea = new Chart(ctx, {data: polarData, type: 'polarArea',
+    window.myPolarArea = new Chart(ctx, {
+        data: polarData,
+        type: 'polarArea',
         options: {}
     });
 };
