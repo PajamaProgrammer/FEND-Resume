@@ -345,7 +345,7 @@ var projects = {
             "allowing for quick and easy (and not so easy) edits and updates. This project also makes use of some " +
             "fun features - Google Maps, an interactive chart to display my skills, and a few easter eggs :)",
 
-        "images": ["images/img_gr/ResumeImage-800_medium_1x.jpg"],
+        "images": ["images/img_gr/ResumeImage-800_medium_1x.jpg", "images/img_gr/ResumeImage2-800_medium_1x.jpg"],
         "url": "http://pajamaprogrammer.github.io/FEND-Resume",
         "git": "https://github.com/PajamaProgrammer/FEND-Resume"
     }, {
