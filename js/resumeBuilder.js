@@ -331,7 +331,7 @@ var projects = {
     "projects": [{
         "title": "Portfolio",
         "dates": "June 2016",
-        "description": "My first project in Udacity's Front-End Web Development Nanodegree program." +
+        "description": "My first project in Udacity's Front-End Web Development Nanodegree program. " +
             "This web development portfolio is a continuous work-in-progress as I continue to learn, modify, and add projects!.",
 
         "images": ["images/img_gr/PortfolioImage-800_medium_1x.jpg"],
@@ -340,21 +340,23 @@ var projects = {
     }, {
         "title": "Resume",
         "dates": "June 2016",
-        "description": "My second project in Udacity's Front-End Web Development Nanodegree program." +
-            "This online resume dynamically creates page content from data retrieved from Javascript Objects (JSON);" +
-            "allowing for quick and easy (and not so easy) edits and updates. This project also makes use of some" +
+        "description": "My second project in Udacity's Front-End Web Development Nanodegree program. " +
+            "This online resume dynamically creates page content from data retrieved from Javascript Objects (JSON); " +
+            "allowing for quick and easy (and not so easy) edits and updates. This project also makes use of some " +
             "fun features - Google Maps, an interactive chart to display my skills, and a few easter eggs :)",
 
         "images": ["images/img_gr/ResumeImage-800_medium_1x.jpg"],
         "url": "http://pajamaprogrammer.github.io/FEND-Resume",
         "git": "https://github.com/PajamaProgrammer/FEND-Resume"
     }, {
-        "title": "Sample Project 1",
-        "dates": "2016",
-        "description": "Just a Place Holder - Project Coming Soon!",
-        "images": ["images/SpacePlaceHolder_Project1.jpg"],
-        "url": "http://pajamaprogrammer.github.io",
-        "git": "https://github.com/PajamaProgrammer"
+        "title": "FROGGER CLONE: Math Edition",
+        "dates": "June 2016",
+        "description": "A clone of the classic arcade game 'Frogger'. " +
+        "My third project in Udacity's Front-End Web Development Nanodegree program and by far my favorite. " +
+        "Inspired by my mother's love of teaching, I added an educational twist.",
+        "images": ["images/img_gr/FroggerImage-800_medium_1x.jpg", "images/img_gr/FroggerImage2-800_medium_1x.jpg"],
+        "url": "http://pajamaprogrammer.github.io/FEND-Frogger",
+        "git": "https://github.com/PajamaProgrammer/FEND-Frogger"
     }, {
         "title": "Sample Project 2",
         "dates": "2016",
@@ -405,7 +407,10 @@ projects.display = function() {
         $(".modal-title:last").append(formattedDate);
 
         var formattedPopupImage = HTMLprojectPopupImageLink.replace("%data%", projects.projects[i].url);
-        formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].images[0]);
+        if (projects.projects[i].images.length > 1)
+            formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].images[1]);
+        else
+            formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].images[0]);
         formattedPopupImage = formattedPopupImage.replace("%data%", projects.projects[i].title);
         $(".modal-body:last").append(formattedPopupImage);
         $(".modal-body:last").append(HTMLprojectDescription.replace("%data%", projects.projects[i].description));
